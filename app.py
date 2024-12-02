@@ -49,9 +49,13 @@ def calc(expression):
                 number += teens[parts[0]]
             elif parts[0] in tens:
                 number += tens[parts[0]]
+            else:
+                raise ValueError("Неверный ввод / не найдена цифра.")
         elif len(parts) == 2:
             if parts[0] in tens and parts[1] in ones:
                 number = tens[parts[0]] + ones[parts[1]]
+            else:
+                raise ValueError("Неверный ввод / не найдена цифра.")
         return number
 
     def to_number_fraction(text):
@@ -138,6 +142,7 @@ def calc(expression):
                 result += ones_text[number]
 
             return result.strip()
+
         else:
             # Для дробных чисел
             integer_part, fractional_part = divmod(number, 1)
@@ -259,5 +264,7 @@ print(calc("сорок один и тридцать один сотых разд
 print(calc("девяносто девять умножить на девяносто девять"))
 print(calc("пять минус один"))
 print(calc("семьдесят восемь плюс два"))
-print(calc("двадцать два остаток от деления на десять"))
+print(calc("двадцать три остаток от деления на десять"))
 print(calc("девятнадцать и восемьдесят две сотых разделить на девяносто девять"))
+#print(calc("два три плюс четыре"))
+#print(calc("сто плюс один"))
